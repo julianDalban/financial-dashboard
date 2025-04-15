@@ -51,7 +51,7 @@ def process_time_series(df: pd.DataFrame) -> Optional[pd.DataFrame]:
     
     processed_df = processed_df.set_index('Date') # set Date as index for time series operations, allows useful datetime attributes
     
-    processed_df = processed_df.fillna(method='ffill') # fill missing values using forward fill 
+    processed_df = processed_df.ffill() # fill missing values using forward fill 
     
     processed_df['DayOfWeek'] = processed_df.index.dayofweek # datetime attribute
     processed_df['Month'] = processed_df.index.month # datetime attribute
